@@ -371,3 +371,105 @@ class B(A):
 s=A()
 result=s.man("manish")
 print(result)
+
+class Car:
+    def __init__(self,make,model,year):
+        self.make=make
+        self.model=model
+        self.year=year
+        self.meter=0
+    def info(self):
+        return f"{self.make} {self.model} {self.year}"
+    def read_meter(self):
+        return f"This car has {self.meter} on it"
+    def update_meter(self,milase):
+        if milase>=self.meter:
+            self.meter=milase
+        else:
+            print("you can't roll back any meter")
+    def increment_meter(self,miles):
+        self.meter+=miles
+my_car=Car("TATA","Toyota",2024)
+print(my_car.info())
+my_car.update_meter(100)
+print(my_car.meter)
+my_car.increment_meter(50)
+print(my_car.meter)
+print(my_car.read_meter())
+
+
+###########  introduction using Class and init method---------------
+class Student:
+    def __init__(self,name,age,):
+        self.name=name
+        self.age=age
+        self.hobbis=[]
+    def intro(self):
+        return f"i am {self.name}. i am {self.age} year old "
+    def add_hobbis(self,hobbis):
+        self.hobbis.append(hobbis)
+    def list_hobbis(self):
+        if self.hobbis:
+            return f" my hobbies are : {",".join(self.hobbis)}."
+        else:
+            return "i have no any hobbies"
+std=Student("manish kumar",24)
+print(std.intro())
+std.add_hobbis("reading book")
+std.add_hobbis("coading")
+std.add_hobbis("learn new skills")
+print(std.list_hobbis())
+
+
+
+###########----------Encapsulation (Private Attributes)------------
+class BankAccount:
+    def __init__(self,owner,balance=0):
+        self.owner=owner
+        self.__balance=balance
+    def deposit(self,amount):
+        if amount>0:
+            self.__balance+=amount
+            print(f"amount deposited : {amount}")
+        else:
+            print("Deposit amount must positive")
+    def withdraw(self,amount):
+        if amount>0 and amount<=self.__balance:
+            self.__balance-=amount
+            print(f"withdraw amount : {amount}")
+        else:
+            print("Insuffcient balance or invalid amount ")
+    def check_balance(self):
+        return f"current balance : {self.__balance}"
+acc=BankAccount("manish",15000)
+acc.deposit(10000)
+print(acc.check_balance())
+acc.withdraw(500)
+print(acc.check_balance())
+
+
+
+#### -------  Inheritance   --------
+
+class Animals:
+    def __init__(self,name):
+        self.name=name
+    def speak(self):
+        return f"{self.name} make sound "
+class Dog(Animals):
+    def speak(self):
+        return f"{self.name} says barkk !"
+class Cat(Animals):
+    def speak(self):
+        return f"{self.name} says mew"
+class Monkey(Animals):
+    def speak(self):
+        return f"{self.name} says chichi"
+dog=Dog("dog")
+print(dog.speak())
+cat=Cat("Cat")
+print(cat.speak())
+monkey=Monkey("Monkey")
+print(monkey.speak())
+ANi=Animals("Some animals")
+print(ANi.speak())
