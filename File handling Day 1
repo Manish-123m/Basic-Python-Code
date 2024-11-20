@@ -1,1 +1,48 @@
+num1=20
+num2=10
+result=num1/num2
+print(result)
+
+
+
+
+try:
+    num1=20
+    num2=10
+    result=num1/num
+except NameError as e:
+    print(e)
+try:
+    num1=20
+    num2=0
+    result=num1/num2
+except:
+    print("Can't devide by zero")
+
+try:
+    num1=20
+    num2=1
+    result=num1/num2
+except:
+    print("Can't devide by zero")
+else:
+    print("inside the else part")
+
+
+import os
+
+try:
+    num1=20
+    num2=0
+    
+    result=num1/num2
+except:
+    print("Can't devide by zero")
+else:
+    print("inside the else part")
+finally:
+    os._exit(0)         ##  at this part not working finally 
+    print("inside the finally")
+
+
 
